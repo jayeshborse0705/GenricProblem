@@ -6,9 +6,20 @@ using System.Threading.Tasks;
 
 namespace GenericProblem
 {
-    internal class MaximumNumberCheck
+    public class GenericMaximum<T> where T : IComparable
     {
-        public static int MaximumIntegerNumber(int firstvalue, int secondvalue, int thirdvalue)
+        public T firstvalue, secondvalue,thirdvalue;
+
+        public GenericMaximum(T firstvalue, T secondvalue, T thirdvalue, T[] value)
+        {
+            this.firstvalue=firstvalue;
+            this.secondvalue=secondvalue;
+            this.thirdvalue=thirdvalue;
+            this.value=value;
+        }
+
+
+       public static int MaximumIntegerNumber(int firstvalue, int secondvalue, int thirdvalue)
         {
             if (firstvalue.CompareTo(secondvalue) > 0 && firstvalue.CompareTo(thirdvalue) >0 ||
                 firstvalue.CompareTo(secondvalue) >= 0 && firstvalue.CompareTo(thirdvalue) > 0 ||
@@ -28,53 +39,13 @@ namespace GenericProblem
             {
                 return thirdvalue;
             }
-            throw new Exception("firstNumber,SecondNumber,thirdNumber are same");
+            return default;
         }
-
-        public static double MaximumdoubleNumber(double firstvalue, double secondvalue, double thirdvalue)
-            {
-                if (firstvalue.CompareTo(secondvalue) > 0 && firstvalue.CompareTo(thirdvalue) >0 ||
-                    firstvalue.CompareTo(secondvalue) >= 0 && firstvalue.CompareTo(thirdvalue) > 0 ||
-                    firstvalue.CompareTo(secondvalue) > 0 && firstvalue.CompareTo(thirdvalue) >=0)
-                {
-                    return firstvalue;
-                }
-                if (secondvalue.CompareTo(firstvalue) > 0 && secondvalue.CompareTo(thirdvalue) >0 ||
-                   secondvalue.CompareTo(firstvalue) >= 0 && secondvalue.CompareTo(thirdvalue) > 0 ||
-                   secondvalue.CompareTo(firstvalue) > 0 && secondvalue.CompareTo(thirdvalue) >=0)
-                {
-                    return secondvalue;
-                }
-                if (thirdvalue.CompareTo(firstvalue) > 0 && thirdvalue.CompareTo(secondvalue) >0 ||
-                   thirdvalue.CompareTo(firstvalue) >= 0 && thirdvalue.CompareTo(secondvalue) > 0 ||
-                   thirdvalue.CompareTo(firstvalue) > 0 && thirdvalue.CompareTo(secondvalue) >=0)
-                {
-                    return thirdvalue;
-                }
-                throw new Exception("firstNumber,SecondNumber,thirdNumber are same");
-            }
-        public static string MaximumStringNumber(string firstvalue, string secondvalue, string thirdvalue)
+        public T MaxMethod()
         {
-            if (firstvalue.CompareTo(secondvalue) > 0 && firstvalue.CompareTo(thirdvalue) >0 ||
-                firstvalue.CompareTo(secondvalue) >= 0 && firstvalue.CompareTo(thirdvalue) > 0 ||
-                firstvalue.CompareTo(secondvalue) > 0 && firstvalue.CompareTo(thirdvalue) >=0)
-            {
-                return firstvalue;
-            }
-            if (secondvalue.CompareTo(firstvalue) > 0 && secondvalue.CompareTo(thirdvalue) >0 ||
-               secondvalue.CompareTo(firstvalue) >= 0 && secondvalue.CompareTo(thirdvalue) > 0 ||
-               secondvalue.CompareTo(firstvalue) > 0 && secondvalue.CompareTo(thirdvalue) >=0)
-            {
-                return secondvalue;
-            }
-            if (thirdvalue.CompareTo(firstvalue) > 0 && thirdvalue.CompareTo(secondvalue) >0 ||
-               thirdvalue.CompareTo(firstvalue) >= 0 && thirdvalue.CompareTo(secondvalue) > 0 ||
-               thirdvalue.CompareTo(firstvalue) > 0 && thirdvalue.CompareTo(secondvalue) >=0)
-            {
-                return thirdvalue;
-            }
-            throw new Exception("firstNumber,SecondNumber,thirdNumber are same");
+            T max = GenericMaximum<T>.MaxValue (this.firstvalue, this.secondvalue, this.thirdvalue);
+            return max;
         }
-
+        
     }
 }
