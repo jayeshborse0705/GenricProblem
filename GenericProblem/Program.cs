@@ -11,6 +11,8 @@ namespace GenericProblem
                Console.WriteLine(output);
                double output1 = MaximumNumberCheck.MaximumdoubleNumber(12.3, 13.5,45.4);
                Console.WriteLine(output1);
+            string output3 = MaximumNumberCheck.MaximumStringNumber("Apple", "Banana", "Pineapple");
+            Console.WriteLine(output3);
             }
 
 
